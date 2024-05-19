@@ -7,7 +7,6 @@ public class AnimalQuizMamior {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Preguntas y respuestas correctas con opciones
         String[][] questionsAndAnswers = {
             {"Como hace la vaca?", "Muuuuu", "Baa", "Oink", "Miau"},
             {"Como hace la Calila?", "Miau", "Muuuuu", "Guau", "Cuac"},
@@ -20,18 +19,15 @@ public class AnimalQuizMamior {
 
         int correctAnswers = 0;
 
-        // Iteramos sobre las preguntas
         for (int i = 0; i < questionsAndAnswers.length; i++) {
             String[] qa = questionsAndAnswers[i];
 
-            // Mezclamos las opciones de respuesta
             List<String> options = new ArrayList<>();
             for (int j = 1; j < 5; j++) {
                 options.add(qa[j]);
             }
             Collections.shuffle(options);
 
-            // Mostrar la pregunta y las opciones
             System.out.println(qa[0]);
             System.out.println("a) " + options.get(0));
             System.out.println("b) " + options.get(1));
@@ -40,7 +36,6 @@ public class AnimalQuizMamior {
 
             String userAnswer = scanner.nextLine().trim().toLowerCase();
 
-            // Convertimos la letra de la opcion a la respuesta correspondiente
             String selectedAnswer = "";
             switch (userAnswer) {
                 case "a":
@@ -60,13 +55,11 @@ public class AnimalQuizMamior {
                     continue;
             }
 
-            // Se verifica si la respuesta seleccionada es igual a la correcta
             if (selectedAnswer.equals(qa[1])) {
                 correctAnswers++;
             }
         }
 
-        // Verificamos si todas las respuestas fueron correctas
         if (correctAnswers == questionsAndAnswers.length) {
             System.out.println("GANASTELEEE! Respondiste todas las preguntas correctamente.");
             System.out.println("Aqui tienes tu premio uwu: https://www.youtube.com/watch?v=rl1volqniBg");
